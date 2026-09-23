@@ -11,6 +11,8 @@ local linters = new Mapping<String, Step> {
         exclude = List("data/*.tar.xz")
     }
     ["pkl"] = Builtins.pkl
+    ["ruff"] = Builtins.ruff
+    ["ruff-format"] = Builtins.ruff_format
 }
 
 hooks {

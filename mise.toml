@@ -2,6 +2,7 @@
 hk = "1.39.0"
 pkl = "latest"
 rumdl = "latest"
+ruff = "latest"
 typos = "latest"
 
 [hooks]
