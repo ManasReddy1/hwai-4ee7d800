@@ -1,0 +1,29 @@
+amends "package://github.com/jdx/hk/releases/download/v1.39.0/hk@1.39.0#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v1.39.0/hk@1.39.0#/Builtins.pkl"
+
+local linters = new Mapping<String, Step> {
+    ["rumdl"] = Builtins.rumdl
+    ["typos"] = Builtins.typos
+    ["trailing-whitespace"] = Builtins.trailing_whitespace
+    ["newlines"] = Builtins.newlines
+    ["merge-conflict"] = Builtins.check_merge_conflict
+    ["large-files"] = (Builtins.check_added_large_files) {
+        exclude = List("data/*.tar.xz")
+    }
+    ["pkl"] = Builtins.pkl
+}
+
+hooks {
+    ["pre-commit"] {
+        fix = true
+        stash = "git"
+        steps = linters
+    }
+    ["fix"] {
+        fix = true
+        steps = linters
+    }
+    ["check"] {
+        steps = linters
+    }
+}

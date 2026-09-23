@@ -1,0 +1,8 @@
+[tools]
+hk = "1.39.0"
+pkl = "latest"
+rumdl = "latest"
+typos = "latest"
+
+[hooks]
+postinstall = "hk install --mise"
