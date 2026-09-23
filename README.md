@@ -8,11 +8,12 @@ I hope this ends up being fun!
 
 ## The Task
 
-1. **Compact context.** Build a runnable script, notebook, or pipeline that turns a patient's HIE pulls into a compact, useful context of at most 900,000 tokens, counted as described in [Token counting](#token-counting).
+1. **Fork this repo** and use it as the basis for the project.
+2. **Compact context.** Build a runnable script, notebook, or pipeline that turns a patient's HIE pulls into a compact, useful context of at most 900,000 tokens, counted as described in [Token counting](#token-counting).
    - consider what can be cut entirely vs. what needs to be summarized
    - consider what can be deterministic vs LLM summaries
-2. **Evals.** Build an eval/test suite that measures how good that context is. You decide what "good" means, and you defend the choice.
-3. **Retrieval.** Build a RAG/lookup system for whatever doesn't fit in the compact context.
+3. **Evals.** Build an eval/test suite that measures how good that context is. You decide what "good" means, and you defend the choice.
+4. **Retrieval.** Build a RAG/lookup system for whatever doesn't fit in the compact context.
 
 ### Constraints
 
@@ -54,3 +55,11 @@ The cap is below the model's 1M-token window so there's room left for a question
 Walk us through the design, the architecture, and the implementation. Tell us which choices were _good_, and which were _compromises_, and—of course—why.
 
 During the onsite we will also extend some of the ideas from [The Task](#the-task). e.g. can we get the context to be super small? can we generalize retrevials for arbitrary labs? the sky is the limit 🪁
+
+## Other stuff
+
+The golden rule is to spend your time doing what you know and with tools you are familiar with.
+
+- `mise.toml` is an environment management tool we use similar to `asdf` and `dotenv`. Completely optional! Ignore it if you want.
+- `hk.pkl` is a linter runner, similar to `pre-commit`. Completely optional! Ignore it if you want.
+- `pyproject.toml` preferred way to manage dependencies, but you can use whatev
