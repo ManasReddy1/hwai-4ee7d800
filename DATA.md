@@ -10,17 +10,11 @@ tar -xJf data/synthea_sample_data_fhir_latest.tar.xz -C data --strip-components=
 
 | File | Contents |
 |---|---|
-| `<Given>_<Family>_<uuid>.json` × 109 | One patient's full history as a FHIR R4 (US Core) `transaction` Bundle |
-| `hospitalInformation*.json` | Shared `Organization` (278) and `Location` (279) resources, as a `batch` Bundle |
-| `practitionerInformation*.json` | Shared `Practitioner` (278) and `PractitionerRole` (278) resources, as a `batch` Bundle |
+| `<Given>_<Family>_<uuid>.json` | One patient's full medical history as a FHIR Bundle. There are 109 of these |
+| `hospitalInformation*.json` | Hospitals and clinics, shared by all patients |
+| `practitionerInformation*.json` | Doctors and other clinicians, shared by all patients |
 
-Total size is 369 MB unpacked. Patient bundles range from 100 KB to 52 MB (median 2.3 MB). They hold between 47 and 18,551 resources each (median 624).
-
-As raw JSON, a bundle is 48k to 8.5M+ tokens (median 1.0M), counted with `count_tokens` on `claude-opus-5`. The two largest bundles are too big for the endpoint to count. 56 of the 109 don't fit in a 1M-token window.
-
-## Patients
-
-There are 109 patients: 57 male and 52 female, and 9 of them are deceased. Birth dates run from 1930 to 2026, and encounters run from 1942 to 2026. Names carry Synthea's numeric suffixes, for example `Martha161 Wiegand701`.
+Patients range from a newborn with a few visits to someone with decades of chronic illness. The smallest file is 100 KB, and the biggest is 52 MB. About half of them are too big to fit in a model's context window as-is.
 
 ## Resources
 
