@@ -1,3 +1,8 @@
 data/*.json
 .venv/
 uv.lock
+output/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+*.pyc
